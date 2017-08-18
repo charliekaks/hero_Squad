@@ -18,8 +18,32 @@ public class App {
         
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("template", "template/index.vtl");
+            model.put("heros", request.session().attribute("heros"));
+            model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
         },new VelocityTemplateEngine());
+
+        post("/heros", (request, response) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            ArrayList<Heros> heros = request.session().attribute("heros");
+            if (heros==null) {
+                heros = new ArrayList<Heros>();
+                request.session().attribute("heros",heros);
+            }
+            String name = request.queryParams("SuperHero-Name");
+            int age = Integer.parseInt(request.queryParams("hero-age"));
+            String power = request.queryParams("special-power");
+            String weakness = request.queryParams("weakness");
+            Heros myHeros = new Heros(name,age,power,weakness);
+            
+            heros.add(myHeros);
+            model.put("template", "templates/success.vtl");
+            return new ModelAndView(model, layout);
+        },new VelocityTemplateEngine());
+
+
+
+
     }
 }

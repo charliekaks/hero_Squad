@@ -1,28 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
+
 public class Heros{
     //private variables that outline the heros properties
     private String heroName;
     private int heroAge;
-    private List<String>heroSuperPower;
-    private List <String> heroWeakness;
+    private String heroSuperPower;
+    private String heroWeakness;
 
-    public Heros(String name){
+    public Heros(String name,int age, String power, String weakness){
         heroName=name;
+        heroAge=age;
+        heroSuperPower = power;
+        heroWeakness = weakness;
     }
     public String getName(){
         return heroName;
     }
-    public int getAge(int age){
-         heroAge=age;
+    public int getAge(){
          return heroAge;
     }
-    public List getSuperPower(){
-        heroSuperPower = new ArrayList<String>();
+    public String getSuperPower(){
         return heroSuperPower;
     }
-    public List getWeakneses(){
-        heroWeakness = new ArrayList<String>();
+    public String getWeakneses(){
         return heroWeakness;
     }
 }

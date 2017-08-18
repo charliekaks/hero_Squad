@@ -40,7 +40,7 @@ public class SquadTest{
     @Test
     public void addHero_addHeroToSquad_true(){
      Squad heroSquad = new Squad("Young Justice");
-     Heros testHero = new Heros("DeadPool"); 
+     Heros testHero = new Heros("DeadPool",42,"immortal","ugly"); 
      heroSquad.addHero(testHero);
      assertTrue(heroSquad.getHeros().contains(testHero));  
     }
