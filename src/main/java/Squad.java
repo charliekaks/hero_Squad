@@ -10,6 +10,8 @@ public class Squad{
     public Squad(String name){
         squadName = name;
         herosSquad.add(this);
+        mId= herosSquad.size();
+        mHeros = new ArrayList<Heros>();
     }
     public String getName(){
         return squadName;
@@ -19,5 +21,17 @@ public class Squad{
     }
     public static void clear(){
         herosSquad.clear();
+    }
+    public int getId(){
+        return mId;
+    }
+    public static Squad find(int idNo){
+        return herosSquad.get(idNo - 1);
+    }
+    public List <Heros> getHeros(){
+        return mHeros;
+    }
+    public void addHero(Heros hero){
+        mHeros.add(hero);
     }
 }

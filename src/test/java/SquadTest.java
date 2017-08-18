@@ -25,8 +25,24 @@ public class SquadTest{
     assertEquals(Squad.all().size(), 0);
   }
   @Test
-  public void getId_SquadINstanceWithId_1(){
-      
+  public void getId_SquadInstanceWithId_1(){
+    Squad.clear();
+    Squad heroSquad = new Squad("Young Justice");
+    assertEquals(1, heroSquad.getId());
   }
+  @Test
+  public void find_returnsSquadWithTheSameId_firstHeroSquad(){
+    Squad.clear();
+    Squad firstHeroSquad = new Squad("Young Justice");
+    Squad secondHeroSquad2 = new Squad("League of Legends"); 
+    assertEquals(Squad.find(firstHeroSquad.getId()), firstHeroSquad);
+    }
+    @Test
+    public void addHero_addHeroToSquad_true(){
+     Squad heroSquad = new Squad("Young Justice");
+     Heros testHero = new Heros("DeadPool"); 
+     heroSquad.addHero(testHero);
+     assertTrue(heroSquad.getHeros().contains(testHero));  
+    }
 
 }
