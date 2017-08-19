@@ -1,4 +1,4 @@
-<form action="/heros" method="post">
+<form action="/heroes" method="post">
     <div class="form-group">
     <label for="SuperHero-Name">SuperHero's Name</label>
     <input type="text" class="form-control" id="SuperHero-Name" name="SuperHero-Name" placeholder="SuperHero's Name">
@@ -18,13 +18,3 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
-
-#if ($heros)
-    #foreach ($hero in $heros)
-      <p>$hero.getName()</p>
-      <p>$hero.getAge()</p>
-    #end
-    
-#else
-    <p>No heros!</p>
-#end

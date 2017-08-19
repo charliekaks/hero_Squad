@@ -1,10 +1,14 @@
 
+import java.util.ArrayList;
+import java.util.List;
 public class Heros{
     //private variables that outline the heros properties
     private String heroName;
     private int heroAge;
     private String heroSuperPower;
     private String heroWeakness;
+    private static List<Heros> herosList = new ArrayList<Heros>();
+    private int mId;
 
     public Heros(String name,int age, String power, String weakness){
         heroName=name;
@@ -21,7 +25,16 @@ public class Heros{
     public String getSuperPower(){
         return heroSuperPower;
     }
-    public String getWeakneses(){
+    public String getWeakness(){
         return heroWeakness;
     }
+    public static List<Heros> all(){
+        return herosList;
+    }
+    public static void clear() {
+        herosList.clear();
+      }
+    public int getId() {
+        return mId;
+      }
 }

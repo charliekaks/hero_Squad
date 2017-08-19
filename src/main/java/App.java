@@ -18,12 +18,18 @@ public class App {
         
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("heros", request.session().attribute("heros"));
             model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
         },new VelocityTemplateEngine());
 
-        post("/heros", (request, response) ->{
+        get("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("heros", request.session().attribute("heros"));
+            model.put("template", "templates/heroes.vtl");
+            return new ModelAndView(model, layout);
+        },new VelocityTemplateEngine());
+
+        post("/heroes", (request, response) ->{
             Map<String, Object> model = new HashMap<String, Object>();
 
             ArrayList<Heros> heros = request.session().attribute("heros");
@@ -41,8 +47,6 @@ public class App {
             model.put("template", "templates/success.vtl");
             return new ModelAndView(model, layout);
         },new VelocityTemplateEngine());
-
-
 
 
     }

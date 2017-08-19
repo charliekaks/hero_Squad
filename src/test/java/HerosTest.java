@@ -25,6 +25,12 @@ public class HerosTest{
     @Test
     public void getAge_instanciatesTheWeaknessArray_String(){
         Heros testHero = new Heros("DeadPool",42,"immortal","ugly");
-        assertEquals("ugly", testHero.getWeakneses());
+        assertEquals("ugly", testHero.getWeakness());
+    }
+    @Test
+    public void clear_empitiesAllHerosFromAList_0(){
+        Heros testHero = new Heros("DeadPool",42,"immortal","ugly"); 
+        Hero.clear();
+        assertEquals(expected, actual);
     }
 }
