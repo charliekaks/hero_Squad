@@ -15,6 +15,8 @@ public class Heros{
         heroAge=age;
         heroSuperPower = power;
         heroWeakness = weakness;
+        herosList.add(this);
+        mId = herosList.size();
     }
     public String getName(){
         return heroName;
@@ -36,5 +38,8 @@ public class Heros{
       }
     public int getId() {
         return mId;
+      }
+      public static Heros find(int id) {
+        return herosList.get(id - 1);
       }
 }

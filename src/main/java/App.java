@@ -22,12 +22,27 @@ public class App {
             return new ModelAndView(model, layout);
         },new VelocityTemplateEngine());
 
+        get("heroes/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("template", "templates/heroes-form.vtl");
+            return new ModelAndView(model, layout);
+          }, new VelocityTemplateEngine());
+
         get("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("heros", request.session().attribute("heros"));
+            model.put("heros", Heros.all());
             model.put("template", "templates/heroes.vtl");
             return new ModelAndView(model, layout);
         },new VelocityTemplateEngine());
+
+        get("/heros/:id", (request, response) -> {
+            HashMap<String, Object> model = new HashMap<String, Object>();
+            Heros heros = Heros.find(Integer.parseInt(request.queryParams(":id")));
+            model.put("heros", heros);
+            model.put("template", "templates/heroes.vtl");
+            return new ModelAndView(model, layout);
+          }, new VelocityTemplateEngine());
 
         post("/heroes", (request, response) ->{
             Map<String, Object> model = new HashMap<String, Object>();
