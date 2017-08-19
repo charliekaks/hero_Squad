@@ -1,0 +1,15 @@
+<h1>$squad.getName()</h1>
+
+<ul>
+  #foreach($hero in $squad.getHeros())
+      <p>$hero.getName()</p>
+      <p>$hero.getAge()</p>
+      <p>$hero.getSuperPower()</p>
+      <p>$hero.getWeakness()</p>
+  #end
+</ul>
+<div class="well">
+    <a href="/squads/$squad.getId()/heroes/new">Add a new task</a>
+
+    <a href="/squads">All Squads</a>
+</div>

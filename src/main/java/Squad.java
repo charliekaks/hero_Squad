@@ -3,18 +3,28 @@ import java.util.List;
 
 public class Squad{
     private String squadName;
+    private String squadCause;
+    private int squadSize;
     private int mId;
     private static List<Squad> herosSquad = new ArrayList<Squad>();
     private List<Heros> mHeros;
 
-    public Squad(String name){
+    public Squad(String name, String cause,int size){
         squadName = name;
+        squadCause = cause;
+        squadSize = size;
         herosSquad.add(this);
         mId= herosSquad.size();
         mHeros = new ArrayList<Heros>();
     }
     public String getName(){
         return squadName;
+    }
+    public String getCause(){
+        return squadCause;
+    }
+    public int getSize(){
+        return squadSize;
     }
     public static List<Squad>all(){
         return herosSquad;
