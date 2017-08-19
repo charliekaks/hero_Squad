@@ -1,0 +1,1 @@
+web: ./build/install/heros/bin/heros
